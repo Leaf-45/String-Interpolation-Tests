@@ -21,59 +21,95 @@ public class StringInterpolationService : IStringInterpolationService
     {
         var date = _date.Now.ToString("MMMM dd, yyyy");
         var answer = $"{date,40}";
-        Console.WriteLine(answer);
-
         return answer;
     }
 
     public string Number02()
     {
-        throw new NotImplementedException();
+        var date = _date.Now.ToString("yyyy.MM.dd");
+        return date;
     }
 
     public string Number03()
     {
-        throw new NotImplementedException();
+        var day = _date.Now.ToString("dd");
+        var MonthAndYear = _date.Now.ToString("MMMM, yyyy");
+        var answer = $"Day {day:dd} of {MonthAndYear:MMMM, yyyy}";
+        return answer;
     }
 
     public string Number04()
     {
-        throw new NotImplementedException();
+        var year = _date.Now.ToString("yyyy");
+        var month = _date.Now.ToString("MM");
+        var day = _date.Now.ToString("dd");
+        var answer = $"Year: {year:yyyy}, Month: {month:MM}, Day: {day:dd}";
+        return answer;
     }
 
     public string Number05()
     {
-        throw new NotImplementedException();
+        var date = _date.Now.ToString("dddd");
+        var answer = $"{date,10:dddd}";
+        return answer;
     }
 
     public string Number06()
     {
-        throw new NotImplementedException();
+        var time = _date.Now.ToString("hh:mm tt");
+        var weekday = _date.Now.ToString("dddd");
+        var answer = $"{time,10:hh:mm tt}{weekday,10:dddd}";
+        return answer;
     }
 
     public string Number07()
     {
-        throw new NotImplementedException();
+        var hour = _date.Now.ToString("hh");
+        var minute = _date.Now.ToString("mm");
+        var second = _date.Now.ToString("ss");
+        var answer = $"h:{hour:hh}, m:{minute:mm}, s:{second:ss}";
+        return answer;
     }
 
     public string Number08()
     {
-        throw new NotImplementedException();
+        var date = _date.Now.ToString("yyyy.MM.dd.hh.mm.ss");
+        var answer = $"{date:yyyy.MM.dd.hh.mm.ss}";
+        return answer;
     }
 
     public string Number09()
     {
-        throw new NotImplementedException();
+        var pi = Math.PI;
+        var answer = $"{pi:c}";
+        return answer;
     }
 
     public string Number10()
     {
-        throw new NotImplementedException();
+        var pi = Math.PI;
+        var answer = $"{pi,10:n3}";
+        return answer;
     }
 
     public string Number11()
     {
-        throw new NotImplementedException();
+        double square = Math.Sqrt(2);
+
+        int length = square.ToString().Length - 1;
+        String hex = "";
+        for (int i = 0; i <= length; i++)
+        {
+            int temp = Convert.ToInt32(Math.Floor(square));
+            square = square - temp;
+            square = square * 16;
+            hex = String.Concat(hex, String.Format("{0:X}", temp));
+            if (i == 0)
+            {
+                hex = String.Concat(hex, ".");
+            }
+        }
+        return hex;
     }
 
     //2.2019.01.22
